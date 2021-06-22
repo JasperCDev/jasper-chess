@@ -1,15 +1,18 @@
+export type board = Array<Array<string | null>>;
+
+
 const chessSquares = document.querySelectorAll(".ChessSquare");
 console.log(chessSquares);
 
 class ChessBoard {
-  board: Array<Array<string | null>>;
+  board: board;
 
   constructor() {
     this.board = this.setUpBoard();
     this.renderBoard();
   }
 
-  setUpBoard(): Array<Array<string | null>> {
+  setUpBoard(): board {
     return [
       ["r-black", "n-black", "b-black", "q-black", "k-black", "b-black", "n-black", "r-black"],
       ["p-black", "p-black", "p-black", "p-black", "p-black", "p-black", "p-black", "p-black"],
@@ -31,9 +34,9 @@ class ChessBoard {
           return;
         }
         const img = document.createElement("img");
-        img.src = `chessPieces/${row[indx]}.png`;
+      img.src = `chessPieces/${row[indx]}.png`;
+      img.classList.add("ChessPiece");
         square.appendChild(img);
-        console.log("here");
     });
   }
 
